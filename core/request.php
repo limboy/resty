@@ -38,6 +38,8 @@ class Request
 		$class->getMethod($this->request_method)->invoke($resource);
 		$class->getMethod('after')->invoke($resource);
 		
-		return $resource;
+		$response = Response::instance();
+		$response->set_body($resource->get_data());
+		return $response;
 	}
 }

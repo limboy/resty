@@ -14,9 +14,9 @@ class Resource
 	{
 	}
 
-	public function output()
+	public function get_data() 
 	{
-		echo json_encode($this->_data);
+		return $this->_data;
 	}
 
 	public function after()
