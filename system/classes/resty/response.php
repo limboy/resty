@@ -1,7 +1,7 @@
 <?php
-class Response_Exception extends Exception{}
+class Response_Exception extends Resty_Exception {}
 
-class Response {
+class Resty_Response {
 	
 	protected $_header = array();
 	protected $_body = '';

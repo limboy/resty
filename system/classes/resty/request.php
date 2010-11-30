@@ -1,8 +1,7 @@
 <?php
+class Request_Exception extends Resty_Exception {}
 
-class Request_Exception extends Exception {}
-
-class Request 
+class Resty_Request 
 {
 	public $resources;
 	public $request_method;

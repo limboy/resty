@@ -1,6 +1,7 @@
 <?php
+class Resource_Exception extends Resty_Exception {}
 
-class Resource 
+class Resty_Resource 
 {
 	protected $_data;
 	protected $_request;
