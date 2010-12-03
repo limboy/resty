@@ -40,12 +40,12 @@ class Resty_Request
 		}
 	}
 
-	public function getData()
+	public function get_data()
 	{
 		return $this->_data;
 	}
 
-	public function setData($key, $val = null)
+	public function set_data($key, $val = null)
 	{
 		if (is_array($key))
 		{
@@ -69,7 +69,7 @@ class Resty_Request
 		$this->_initData();
 	}
 
-	public function getResource()
+	public function get_resource()
 	{
 		static $resource;
 		if (empty($resource))
@@ -79,7 +79,7 @@ class Resty_Request
 
 	public function exec()
 	{
-		$class_name = 'Resource_'.str_replace('/', '_', $this->getResource());
+		$class_name = 'Resource_'.str_replace('/', '_', $this->get_resource());
 		$class = new ReflectionClass($class_name);
 		$resource = $class->newInstance($this);
 		$class->getMethod('before')->invoke($resource);

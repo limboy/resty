@@ -10,12 +10,13 @@ class Resty_Resource
 	public function __construct($request)
 	{
 		$this->_request = $request;
+		$this->_data = $this->_request->get_data();
 	}
 
 	public function validate()
 	{
-		$this->_validation = Validation::factory($this->_request->getData());
-		$resource = $this->_request->getResource();
+		$this->_validation = Validation::factory($this->_request->get_data());
+		$resource = $this->_request->get_resource();
 		$config = Config::get('validation.'.$resource.'.'.strtolower($this->_request->request_method));
 		foreach ($config as $key => $val)
 		{
@@ -24,6 +25,7 @@ class Resty_Resource
 				$this->_validation->$key($field, $func);
 			}
 		}
+		$this->_data = $this->_validation->as_array();
 		return $this->_validation->check();
 	}
 

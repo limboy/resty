@@ -20,9 +20,9 @@ Class Resty_Route
 				$resource = $val;
 				foreach ($matches as $k => $match)
 				{
-					if (!ctype_digit($k))
+					if (!is_int($k))
 					{
-						$request->setData($k, $match);
+						$request->set_data($k, $match);
 					}
 				}
 				break;

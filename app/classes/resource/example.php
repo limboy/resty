@@ -4,7 +4,7 @@ class Resource_Example extends Resource
 {
 	public function get()
 	{
-		/*
+		/* set etag
 		Response::instance()
 			->if_none_match(md5('hello'))
 			->add_etag(md5('hello'))
@@ -12,10 +12,7 @@ class Resource_Example extends Resource
 		//*/
 		if ($this->validate())
 		{
-			$this->_data = array(
-				'date' => date('Y/m/d H:i:s'),
-				'name' => 'lzyy',
-			);
+			$this->_data = $this->get_data();
 		}
 		else 
 		{
@@ -25,6 +22,6 @@ class Resource_Example extends Resource
 
 	public function post()
 	{
-		$this->_data = array_merge($_POST, array('name' => 'lzyy'));
+		$this->_data = array_merge($this->get_data(), array('type' => 'post'));
 	}
 }

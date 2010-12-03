@@ -389,7 +389,7 @@ class Resty_Validation extends ArrayObject {
 			}
 		}
 
-		Request::instance()->setData($this->as_array());
+		Request::instance()->set_data($this->as_array());
 
 		return empty($this->_errors);
 	}
@@ -442,7 +442,7 @@ class Resty_Validation extends ArrayObject {
 				$values[':value'] = NULL;
 			}
 
-			$resource = Request::instance()->getResource();
+			$resource = Request::instance()->get_resource();
 
 			if ($message = Config::get("message.{$resource}.{$field}.{$error}"))
 			{
