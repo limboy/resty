@@ -19,7 +19,7 @@ class Resource_Example extends Resource
 		}
 		else 
 		{
-			$this->_data = $this->getErrors();
+			$this->_data = array('error' => implode(',', $this->getErrors()), 'request' => $_SERVER['REQUEST_URI']);
 		}
 	}
 

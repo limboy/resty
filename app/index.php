@@ -16,7 +16,8 @@ try {
 	Response::instance()
 		->set_status(404)
 		->set_body(array(
-			'message' => 'Resource Not Found',
+			'error' => 'Resource Not Found',
+			'Request' => $_SERVER['REQUEST_URI'],
 		))
 		->output()
 		;
