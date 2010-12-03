@@ -10,10 +10,14 @@ require SYS_PATH.'classes'.DS.'resty.php';
 
 Resty::instance()->init();
 
-$resources = array(
-	'/example' => 'example',
-);
-
-$request = new Request($resources);
-$response = $request->exec();
-$response->output();
+try {
+	Request::instance()->exec()->output();
+} catch (Route_Exception $e) {
+	Response::instance()
+		->set_status(404)
+		->set_body(array(
+			'message' => 'Resource Not Found',
+		))
+		->output()
+		;
+}

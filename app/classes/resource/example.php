@@ -10,10 +10,17 @@ class Resource_Example extends Resource
 			->add_etag(md5('hello'))
 			;
 		//*/
-		$this->_data = array(
-			'date' => date('Y/m/d H:i:s'),
-			'name' => 'lzyy',
-		);
+		if ($this->validate())
+		{
+			$this->_data = array(
+				'date' => date('Y/m/d H:i:s'),
+				'name' => 'lzyy',
+			);
+		}
+		else 
+		{
+			$this->_data = $this->getErrors();
+		}
 	}
 
 	public function post()

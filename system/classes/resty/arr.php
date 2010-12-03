@@ -80,4 +80,22 @@ class Resty_Arr
 
 		return $array1;
 	}
+
+	public static function flatten($array)
+	{
+		$flat = array();
+		foreach ($array as $key => $value)
+		{
+			if (is_array($value))
+			{
+				$flat += Arr::flatten($value);
+			}
+			else
+			{
+				$flat[$key] = $value;
+			}
+		}
+		return $flat;
+	}
+
 }
