@@ -150,7 +150,7 @@ return array(
 	),
 );
 
-h4. Config功能
+#### Config功能
 
 config文件如上面所示，就是返回一个数组。使用也很简单:
 
